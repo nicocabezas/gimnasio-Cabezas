@@ -1,7 +1,7 @@
 # Creando mi app Gimnasio
 
 Clase 2: Instalacion + creacion de la app.\
-Clase 3: Creacion del NavBar.jsx + agregando mis categorias. 
+Clase 3: Creacion del NavBar.jsx + agregando mis componentes.
 
 
 ### `npm start`
