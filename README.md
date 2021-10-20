@@ -1,4 +1,4 @@
-# Creando mi app Gimnasio "ProGym"
+# Creando mi app Gimnasio "ProFitness"
 
 Clase 2: Instalacion + creacion de la app.\
 Clase 3: Creacion del NavBar.jsx + agregando mis componentes.
