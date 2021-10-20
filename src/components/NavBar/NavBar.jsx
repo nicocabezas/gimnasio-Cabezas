@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, IconButton, Toolbar } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@mui/material/Button';
@@ -26,12 +26,13 @@ const NavBar = () => {
                     <Button color="inherit">Musculación</Button>
                     <Button color="inherit">Cintas</Button>
                     <Button color="inherit">Indumentaria</Button>
-                    <Typography className="Title" variant='h5' top='end' >
-                        
-                        <img src={fondo}  />
-                    </Typography>
+            
+                    <img className="logo1" src={fondo} alt="logofit"/>
                 </Toolbar>
+                
+                
             </AppBar>
+            
             <div className = {classes.offset}></div>
         </div>
     )
