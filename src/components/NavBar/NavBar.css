@@ -4,3 +4,9 @@
 .Title{
     position: end;
 }
+.toolbarcolor{
+    background-color: #282828;
+}
+.menucolor{
+    color: white;
+}

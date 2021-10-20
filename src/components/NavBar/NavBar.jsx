@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@mui/material/Button';
 import './NavBar.css';
+import fondo from '../../assets/img/fondoNavBar.jpg'
+
 
 
 const useStyles = makeStyles(theme =>({
@@ -15,17 +17,18 @@ const NavBar = () => {
     return (
         <div>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar className="toolbarcolor">
                     <IconButton>
-                        <MenuIcon/>
+                        <MenuIcon className="menucolor"/>
                     </IconButton>
                     
                     <Button color="inherit">Fitness</Button>
                     <Button color="inherit">Musculación</Button>
                     <Button color="inherit">Cintas</Button>
                     <Button color="inherit">Indumentaria</Button>
-                    <Typography className="Title" variant='h5' position='static' >
-                        ProGym
+                    <Typography className="Title" variant='h5' top='end' >
+                        
+                        <img src={fondo}  />
                     </Typography>
                 </Toolbar>
             </AppBar>
