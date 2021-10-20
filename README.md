@@ -1,4 +1,7 @@
-# Creando mi app Gimnasio
+# Creando mi app Gimnasio "ProGym"
+
+Clase 2: Instalacion + creacion de la app.\
+Clase 3: Creacion del NavBar.jsx + agregando mis componentes.
 
 
 ### `npm start`
