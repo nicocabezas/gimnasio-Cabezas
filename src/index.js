@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 
 
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  
+    <App titulo='Soy app'/>,
   document.getElementById('root')
 );
 

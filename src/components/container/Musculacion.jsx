@@ -3,7 +3,7 @@ import React from 'react'
 const Musculacion = () => {
     return (
         <div>
-            Musculacion
+            Musculación
         </div>
     )
 }

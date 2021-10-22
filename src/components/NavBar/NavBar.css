@@ -5,10 +5,13 @@
     position: end;
 }
 .toolbarcolor{
+    
     background-color: #282828;
     margin-top: auto;
     flex-grow: 1;
+    
 }
 .menucolor{
     color: white;
 }
+
