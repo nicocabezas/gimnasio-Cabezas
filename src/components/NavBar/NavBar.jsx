@@ -1,12 +1,10 @@
 import React from "react";
-import { AppBar, IconButton, Toolbar } from "@mui/material";
+import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import { makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@mui/material/Button";
 import "./NavBar.css";
-import fondo from "../../assets/img/fondoNavBar.jpg";
-import ShoppingCartOutlined from "@material-ui/icons/ShoppingCartOutlined";
-
+import { CartWidget } from "../CartWidget/CartWidget";
 
 
 
@@ -25,40 +23,35 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   return (
     <>
+      
       <div className={classes.root}>
         <AppBar position="static">
-          <Toolbar className="toolbarcolor">
-            {/* <Drawer 
+          
+          <Toolbar className="toolbarcolor" >
+          {/* <Drawer 
             className={classes.drawer}
             variant="permanent"
             anchor="left"
             classes
             /> */}
-
+  
             <IconButton>
               <MenuIcon className="menucolor" />
             </IconButton>
-
+            <Typography variant="h5"  sx={{ flexGrow: 1 }}>
             <Button color="inherit">Fitness</Button>
             <Button color="inherit">Musculación</Button>
             <Button color="inherit">Cintas</Button>
             <Button color="inherit">Indumentaria</Button>
-            <ShoppingCartOutlined />
+            
+            </Typography>
             <Button color="inherit">INICIA SESION</Button>
-
-            <img className="logo1" src={fondo} alt="logofit" />
+            <CartWidget/>
+            <img src={`./assets/FondoNavBar/fondoNavBar.jpg`}className="logo1" alt="logofit"/>
           </Toolbar>
         </AppBar>
 
@@ -67,16 +60,3 @@ export default function NavBar() {
     </>
   );
 }
-
-export const ItemListContainer = ( props ) => {
-
-    const {titulo} = props
-
-  console.log(props);
-
-  return (
-    
-      <h1>{titulo}</h1>
-    
-  );
-};
