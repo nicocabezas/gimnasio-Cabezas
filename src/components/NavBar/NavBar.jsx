@@ -70,7 +70,7 @@ export default function NavBar() {
           </Toolbar>
         </AppBar>
 
-        <div className={classes.offset}></div>
+        <div className={classes.offset}/>
       </div>
     </>
   );
