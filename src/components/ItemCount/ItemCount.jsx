@@ -9,8 +9,7 @@ function Item(props) {
     return (
         <Box
             sx={{
-                bgcolor: 'primary.main',
-                color: 'white',
+                bgcolor: 'gray',
                 p: 1,
                 m: 1,
                 borderRadius: 1,
@@ -47,49 +46,44 @@ const ItemCount = ({ stock, initial, /* onAdd */ }) => {
     };
 
     return (
-        <>
+        <div style={{ width: '30%' }}>
 
             <p>Stock Pesas = {stock}</p>
-            <Box sx={{
-                display: 'flex',
-                justifyContent: 'space-evenly',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-            }}>
-                <Button 
-                    sx={{ alignSelf: 'flex-end' }}
-                    variant="outlined"
-                    onClick={() => {
-                    setCount((initial = 1));
-                }}
-                >
-                    Reset
-                </Button>
+            <Box sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", }}>
+
 
 
                 <Button variant="outlined" onClick={sumProd}>
                     +
                 </Button>
-                <h3 position="center"> {count} </h3>
+                <Item variant="outlined" position="center"> {count} </Item>
 
 
                 <Button variant="outlined" onClick={resProd}>
                     -
                 </Button>
+            </Box>
+            <br/>
+            <Box sx={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}>
+                <Button
+                    variant="outlined"
+                    onClick={() => {
+                        setCount((initial = 1));
+                    }}
+                >
+                    Reset
+                </Button>
+                <Button
 
-
-
-                <Button sx={{ alignSelf: 'flex-end' }}
                     variant="outlined"
                     onClick={onAdd}
                 >
 
                     Agregar
                 </Button>
-
             </Box>
-        </>
+
+        </div>
     );
 };
 
