@@ -31,16 +31,8 @@ export default function NavBar() {
   return (
     <>
       <div className={classes.root}>
-        <AppBar position="fixed">
+        <AppBar >
           <Toolbar className="toolbarcolor">
-            {/* <Carlo /> */}
-            {/* <Drawer 
-            className={classes.drawer}
-            variant="permanent"
-            anchor="left"
-            classes
-            /> */}
-
             <IconButton>
               <MenuIcon className="menucolor" />
             </IconButton>
@@ -58,7 +50,7 @@ export default function NavBar() {
                 Indumentaria
               </Button>
             </Typography>
-            <Button color="inherit">INICIA SESION</Button>
+            <Button color="inherit">Iniciar Sesion</Button>
             <Button>
               <CartWidget />
             </Button>
