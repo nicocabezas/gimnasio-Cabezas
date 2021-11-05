@@ -29,6 +29,7 @@ Item.propTypes = {
 
 
 const ItemCount = ({ stock, initial, onAdd }) => {
+    
     const [count, setCount] = useState(initial);
 
     const sumProd = () => {
