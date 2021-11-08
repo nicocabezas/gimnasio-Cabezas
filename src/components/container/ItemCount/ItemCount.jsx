@@ -50,7 +50,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div style={{ width: '20%' }}>
 
-            <p>Stock Pesas = {stock}</p>
+            <p>Stock = {stock}</p>
             <Box sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", }}>
 
                 <Button variant="outlined" onClick={sumProd}>
