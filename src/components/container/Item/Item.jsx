@@ -9,16 +9,17 @@ import { Link } from "react-router-dom";
 export const Item = ({ prod }) => {
 
     return (
-        <Card key={prod.id} sx={{ maxWidth: 345 }}>
+        <Card key={prod.id} sx={{ maxWidth: 400 }}>
             <CardMedia
-                component="img"
-                height="140"
                 image={prod.img}
                 alt={prod.name}
+                component="img"
+                height="140"
+
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {`${prod.name} - ${prod.categoria}`}
+                    {`${prod.title} - ${prod.categoria}`}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
