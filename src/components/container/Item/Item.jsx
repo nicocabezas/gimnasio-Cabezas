@@ -1,13 +1,15 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
 import { withStyles } from '@mui/styles';
+// import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
 
 
-export const Item = ({ prod,item,stock }) => {
+export const Item = ({ prod }) => {
 
     return (
-        <Card className={item} key={prod.id} sx={{ maxWidth: 345 }}>
+        <Card key={prod.id} sx={{ maxWidth: 345 }}>
             <CardMedia
                 component="img"
                 height="140"
@@ -28,16 +30,19 @@ export const Item = ({ prod,item,stock }) => {
             <Typography textAlign="center"  >
                 {prod.price}
             </Typography>
-            
-            <CardActions>
-                <Button size="small">Ver detalle del producto</Button>
+            {/* <ItemCount stock={10}/> */}
+            <CardActions >
+                <Link to={`/detail/${prod.id}`}>
+                    <Button>Ver producto</Button>
+                </Link>
             </CardActions>
+
         </Card>
 
     );
 };
-export default withStyles ({
-    item:{
+export default withStyles({
+    item: {
         minWidth: "350",
         margin: "1em",
         boxSizing: "border-box"

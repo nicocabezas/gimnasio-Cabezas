@@ -28,7 +28,7 @@ Item.propTypes = {
 };
 
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial=1, onAdd }) => {
     
     const [count, setCount] = useState(initial);
 

@@ -1,33 +1,53 @@
+import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { products } from '../Products';
 
+const getItem = new Promise((res) => {
+    setTimeout(() => {
+        res(products)
+    }, 2000);
+});
 
 function ItemDetailContainer() {
-    const [itemData, setItemData] = useState([])
+    const [item, setItem] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const getItem = new Promise((resolve) => {
-        setTimeout(() => {
-            const mockItem =
-            {
-                id: '1',
-                image:'./assets/FotoProducts/cilindroPro.jpg',
-                title: 'Cilindro Masajeador',
-                price: '3000',
-                description: 'Con el rodillo de masajes tendrás un gran aliado para minimizar esos nudos que se forman en los músculos del cuerpo y que se generan por estrés, sobrecarga, mala postura, sobreentrenamiento o lesiones previas y que, si no se tratan podrán acarrear molestias y nuevas lesiones.'
-            }
-            resolve(mockItem)
-        }, 2000)
-    })
+    const { prodID } = useParams(); 
+    
 
     useEffect(() => {
-        getItem.then((response) => {
-            setItemData(response)
-        })
-    }, [])
+        if(prodID){
+            getItem
+                .then(res => {
+                    setItem(res.find(p => p.id === parseInt(prodID)))
+                })
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
+        }else{
+            getItem
+                .then(res => {
+                    setItem(res)
+                })
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false)) 
+        }
+    },[prodID]);
+
 
     return (
-        <ItemDetail key={itemData.id}  title={itemData.title} price={itemData.price} description={itemData.description} image={itemData.image} />
+        <>
+            {
+                loading
+                    ?
+
+                    <div><CircularProgress /></div>
+                    :
+                    <ItemDetail prod={item}/>
+            }
+        </>
     );
 }
 
-export default ItemDetailContainer; 
+export default ItemDetailContainer;

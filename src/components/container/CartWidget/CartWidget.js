@@ -4,7 +4,8 @@ import React from 'react'
 export const CartWidget = () => {
     return (
         <>
-            <ShoppingCartOutlined />
+        <hr></hr>
+        <ShoppingCartOutlined />
         </>
     )
 }

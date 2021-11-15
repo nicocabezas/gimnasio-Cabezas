@@ -1,20 +1,31 @@
-import { Card, CardContent,} from "@mui/material";
+import { Card, CardMedia, Grid} from "@mui/material";
+
 import React from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({ id, title,item, image, src, description, price }) => {
+
+const ItemDetail = ({ prod }) => {
+    
+
     return (
-        <>
-             <Card className={item} align= "center"sx={{ maxWidth: 345 ,position: "center" }}>
-                <CardContent key={id} >
-                    <img src={image} alt="" />
+        <div align="center">
+            <Card sx={{ maxHeight: 500,maxWidth: 400, padding: 10,}}>
 
-                    <h2>{title}</h2>
-                    <p>{description}</p>
-                    <p>{price}</p>
-                    
-                </CardContent>
+                <CardMedia
+                    component="img"
+                    height="140"
+                    image={prod.img}
+                    alt={prod.name}
+                />
+                <Grid>
+                    <h2>{prod.title}</h2>
+                    <p>{prod.descripcion}</p>
+                    <p>{prod.price}</p>
+                    <ItemCount stock={prod.stock} product={prod.title} />
+                </Grid>
+
             </Card>
-        </>
+        </div>
     );
 };
 
