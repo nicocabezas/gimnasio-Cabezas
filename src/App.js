@@ -5,7 +5,7 @@ import NavBar from './components/container/NavBar/NavBar';
 import ItemDetailContainer from './components/container/ItemDetailContainer/ItemDetailContainer';
 import { CartWidget } from './components/container/CartWidget/CartWidget';
 import './App.css';
-import CartContext, { CartContextProvider } from './Context/CartContext';
+import { CartContextProvider } from './Context/CartContext';
 
 
 

@@ -4,12 +4,18 @@ import { useParams } from 'react-router';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { products } from '../Products';
 
-const getItem = new Promise((res) => {
-    setTimeout(() => {
-        res(products)
-    }, 2000);
-});
+const getItem = new Promise((res, rej) => {
+    const condition = true;
 
+    if (condition) {
+        setTimeout(() => {
+            res(products)
+        }, 2000)
+    } else {
+        rej('404 Not found')
+    }
+
+})
 function ItemDetailContainer() {
     const [item, setItem] = useState([]);
     const [loading, setLoading] = useState(true);

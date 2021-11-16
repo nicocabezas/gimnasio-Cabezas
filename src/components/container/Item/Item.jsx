@@ -14,7 +14,7 @@ export const Item = ({ prod }) => {
                 image={prod.img}
                 alt={prod.name}
                 component="img"
-                height="140"
+                height="400"
 
             />
             <CardContent>

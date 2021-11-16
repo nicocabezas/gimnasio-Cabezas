@@ -3,6 +3,9 @@ import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import PropTypes from 'prop-types';
 
+
+
+
 function Item(props) {
 
     const { sx, ...other } = props;
@@ -28,7 +31,7 @@ Item.propTypes = {
 };
 
 
-const ItemCount = ({ stock, initial=1, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
     
     const [count, setCount] = useState(initial);
 
@@ -42,16 +45,17 @@ const ItemCount = ({ stock, initial=1, onAdd }) => {
             ? setCount(count - 1)
             : alert("Producto sin stock");
     };
-    const agregar = (onAdd) => {
+    /* const agregar = (onAdd) => {
         if (count >= 1)
             alert(`Agregaste ${count} productos`);
-    };
-
+    }; */
+    onAdd(count)
     return (
         <div style={{ width: '20%' }}>
 
             <p>Stock = {stock}</p>
-            <Box sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", }}>
+            
+            <Box sx={{ display: "flex", gridTemplateColumns: "repeat(3, 1fr)", }}>
 
                 <Button variant="outlined" onClick={sumProd}>
                     +
@@ -62,17 +66,19 @@ const ItemCount = ({ stock, initial=1, onAdd }) => {
                     -
                 </Button>
             </Box>
+            
             <br/>
             <Box sx={{ display: "grid", gridTemplateColumns: "repeat(1, 1fr)" }}>
-                
-                <Button
+               
+                {/* <Button
 
                     variant="outlined"
-                    onClick={agregar}
+                    onClick={onAdd}
+                    
                 >
 
                     Agregar
-                </Button>
+                </Button> */}
             </Box>
 
         </div>
