@@ -45,31 +45,29 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             ? setCount(count - 1)
             : alert("Producto sin stock");
     };
-    /* const agregar = (onAdd) => {
-        if (count >= 1)
-            alert(`Agregaste ${count} productos`);
-    }; */
-    onAdd(count)
+
     return (
         <div style={{ width: '20%' }}>
 
-            <p>Stock = {stock}</p>
+            <p>Stock = {stock - count}</p>
             
             <Box sx={{ display: "flex", gridTemplateColumns: "repeat(3, 1fr)", }}>
 
                 <Button variant="outlined" onClick={sumProd}>
                     +
                 </Button>
-                <Item variant="outlined" position="center"> {count} </Item>
+                <h2>{count}</h2>
+                {/* <Item variant="outlined" position="center"> {count} </Item> */}
 
                 <Button variant="outlined" onClick={resProd}>
                     -
                 </Button>
+                
             </Box>
             
             <br/>
             <Box sx={{ display: "grid", gridTemplateColumns: "repeat(1, 1fr)" }}>
-               
+            <Button onClick={() => onAdd(count)}> Agregar al Carro </Button>
                 {/* <Button
 
                     variant="outlined"

@@ -3,9 +3,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ItemListContainer from './components/container/ItemListContainer/ItemListContainer';
 import NavBar from './components/container/NavBar/NavBar';
 import ItemDetailContainer from './components/container/ItemDetailContainer/ItemDetailContainer';
-import { CartWidget } from './components/container/CartWidget/CartWidget';
 import './App.css';
-import { CartContextProvider } from './Context/CartContext';
+import CartContextProvider from './Context/CartContext'
+import { Cart } from './components/container/Cart/Cart';
+
 
 
 
@@ -15,8 +16,10 @@ function App() {
   return (
     <CartContextProvider>
       <BrowserRouter>
-        <Container maxWidth="true">
+        
           <NavBar />
+
+          <Container maxWidth="true">
           <Switch>
             <Route exact path="/">
               <ItemListContainer greeting='Bienvenidos al planeta fitness' />
@@ -28,7 +31,7 @@ function App() {
               <ItemDetailContainer />
             </Route>
             <Route exact path="/cart">
-              <CartWidget />
+              <Cart />
             </Route>
           </Switch>
         </Container>
