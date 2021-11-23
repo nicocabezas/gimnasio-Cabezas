@@ -7,6 +7,7 @@ import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../../Context/CartContext'
 import CartEmpty from './CartEmpty';
+import { Button } from '@mui/material'
 
 export const Cart = () => {
 
@@ -27,16 +28,35 @@ export const Cart = () => {
                                         <TableCell align="right">Cantidad</TableCell>
                                         <TableCell align="right">Precio</TableCell>
                                         <TableCell align="right">Total</TableCell>
-                                        <i onClick={() => deleteProd(prod.id)}></i>
+                                        <div onClick={() => deleteProd(prod.id)}></div>
                                     </TableRow>
+
                                 </TableHead>
-
-
                             </Table>
-                            <Table sx={{ minWidth: 650 }} aria-label="simple table"></Table>
+                        </TableContainer>
+
+                        <TableContainer component={Paper}>
+                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                                <TableRow>
+                                    <TableCell >{prod.title}</TableCell>
+                                    <TableCell >{prod.cantidad}</TableCell>
+                                    <TableCell >{prod.price}</TableCell>
+                                    <TableCell >{prod.price * prod.cantidad}</TableCell>
+                                </TableRow>
+                            </Table>
                         </TableContainer>
                     </div>
                 )
+
+            }
+            {
+                cartList.length === 0 ? null :
+                    <>
+                        <Button onClick={deleteCart}>Vaciar Carro</Button>
+                        <Button>
+                        <Link to='/' >Seguir comprando</Link>
+                        </Button>
+                    </>
             }
         </div>
     );
