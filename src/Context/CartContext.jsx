@@ -41,7 +41,7 @@ const CartContextProvider = ({ children }) => {
     const totalPrice = () => {
         return cartList.reduce((acum, prod) => (acum += prod.price * prod.cantidad), 0)
     }
-    //el 0 da el valor inicial
+    
 
 
     const deleteCart = () => {

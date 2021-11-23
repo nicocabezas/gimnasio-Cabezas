@@ -7,7 +7,8 @@ import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../../Context/CartContext'
 import CartEmpty from './CartEmpty';
-import { Button } from '@mui/material'
+import { Button, TableBody } from '@mui/material'
+import { Delete } from '@material-ui/icons';
 
 export const Cart = () => {
 
@@ -19,44 +20,52 @@ export const Cart = () => {
             {cartList.length === 0 ? <CartEmpty h1="Su carrito está vacío" /> :
 
                 cartList.map(prod =>
-                    <div>
+                    
                         <TableContainer component={Paper}>
-                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                                 <TableHead>
-                                    <TableRow>
-                                        <TableCell key={prod.id}>Productos</TableCell>
+                                    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }} >
+
+                                        <TableCell >Productos</TableCell>
                                         <TableCell align="right">Cantidad</TableCell>
                                         <TableCell align="right">Precio</TableCell>
                                         <TableCell align="right">Total</TableCell>
-                                        <i onClick={() => deleteProd(prod.id)}></i>
+
                                     </TableRow>
-
                                 </TableHead>
-                            </Table>
 
-
-
-                            <Table sx={{ minWidth: 0 }} aria-label="simple table">
-                                <TableRow>
-                                    <TableCell >{prod.title}</TableCell>
-                                    <TableCell align="right">{prod.cantidad}</TableCell>
-                                    <TableCell align="right">{prod.price}</TableCell>
-                                    <TableCell align="right">{prod.price * prod.cantidad}</TableCell>
-                                </TableRow>
+                                <TableBody>
+                                    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }} >
+                                        
+                                        <TableCell component="th" scope="row">{prod.title}</TableCell>
+                                        <TableCell align="right">{prod.cantidad}</TableCell>
+                                        <TableCell align="right">{prod.price}</TableCell>
+                                        <TableCell align="right">{prod.price * prod.cantidad}</TableCell>
+                                        <TableCell align="right">
+                                            <Button item xs={8}>
+                                                <Delete onClick={() => deleteProd(prod.id)} />
+                                            </Button>
+                                        </TableCell>
+                                    </TableRow>
+                                </TableBody>
                             </Table>
                         </TableContainer>
-                    </div>
+                    
                 )
 
             }
             {
                 cartList.length === 0 ? null :
                     <>
+                        <p align="right">Total: {totalPrice()}</p>
                         <Button onClick={deleteCart}>Vaciar Carro</Button>
                         <Button>
                             <Link to='/' >Seguir comprando</Link>
                         </Button>
-                        <p>Total: {totalPrice()}</p>
+                        <Button>
+                            <Link to='/end'> Terminar mi Compra</Link>
+                        </Button>
+
                     </>
             }
         </div>
