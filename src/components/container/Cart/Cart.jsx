@@ -11,7 +11,7 @@ import { Button } from '@mui/material'
 
 export const Cart = () => {
 
-    const { cartList, deleteCart, deleteProd, cantProd, totalPrice } = useCartContext()
+    const { cartList, deleteCart, deleteProd, totalPrice } = useCartContext()
     console.log(cartList)
 
     return (
@@ -28,20 +28,20 @@ export const Cart = () => {
                                         <TableCell align="right">Cantidad</TableCell>
                                         <TableCell align="right">Precio</TableCell>
                                         <TableCell align="right">Total</TableCell>
-                                        <div onClick={() => deleteProd(prod.id)}></div>
+                                        <i onClick={() => deleteProd(prod.id)}></i>
                                     </TableRow>
 
                                 </TableHead>
                             </Table>
-                        </TableContainer>
 
-                        <TableContainer component={Paper}>
-                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+
+
+                            <Table sx={{ minWidth: 0 }} aria-label="simple table">
                                 <TableRow>
                                     <TableCell >{prod.title}</TableCell>
-                                    <TableCell >{prod.cantidad}</TableCell>
-                                    <TableCell >{prod.price}</TableCell>
-                                    <TableCell >{prod.price * prod.cantidad}</TableCell>
+                                    <TableCell align="right">{prod.cantidad}</TableCell>
+                                    <TableCell align="right">{prod.price}</TableCell>
+                                    <TableCell align="right">{prod.price * prod.cantidad}</TableCell>
                                 </TableRow>
                             </Table>
                         </TableContainer>
@@ -54,8 +54,9 @@ export const Cart = () => {
                     <>
                         <Button onClick={deleteCart}>Vaciar Carro</Button>
                         <Button>
-                        <Link to='/' >Seguir comprando</Link>
+                            <Link to='/' >Seguir comprando</Link>
                         </Button>
+                        <p>Total: {totalPrice()}</p>
                     </>
             }
         </div>
