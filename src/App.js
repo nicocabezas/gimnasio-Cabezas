@@ -16,10 +16,10 @@ function App() {
   return (
     <CartContextProvider>
       <BrowserRouter>
-        
+      <Container maxWidth="true">
           <NavBar />
 
-          <Container maxWidth="true">
+          
           <Switch>
             <Route exact path="/">
               <ItemListContainer greeting='Bienvenidos al planeta fitness' />

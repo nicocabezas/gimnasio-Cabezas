@@ -3,15 +3,17 @@ import React from "react";
 import { withStyles } from '@mui/styles';
 // import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
+import { Box } from "@mui/system";
 
 
 
 export const Item = ({ prod }) => {
 
     return (
+        <Box sx={{ border: 2, m: "1rem", borderRadius: '6px'}}>
         <Card key={prod.id} sx={{ maxWidth: 400 }}>
             <CardMedia
-                image={prod.img}
+                image={prod.urlImage}
                 alt={prod.name}
                 component="img"
                 height="400"
@@ -19,7 +21,7 @@ export const Item = ({ prod }) => {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {`${prod.title} - ${prod.categoria}`}
+                    {`${prod.title} - ${prod.categoryId}`}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -39,6 +41,7 @@ export const Item = ({ prod }) => {
             </CardActions>
 
         </Card>
+        </Box>
 
     );
 };
