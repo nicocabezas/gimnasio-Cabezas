@@ -33,22 +33,6 @@ function ItemDetailContainer() {
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
 
-
-        // if(prodID){
-        //     getItem
-        //         .then(res => {
-        //             setItem(res.find(p => p.id === parseInt(prodID)))
-        //         })
-        //         .catch(err => console.log(err))
-        //         .finally(() => setLoading(false))
-        // }else{
-        //     getItem
-        //         .then(res => {
-        //             setItem(res)
-        //         })
-        //         .catch(err => console.log(err))
-        //         .finally(() => setLoading(false)) 
-        // }
     },[prodID]);
 
 
@@ -60,7 +44,7 @@ function ItemDetailContainer() {
 
                     <div><CircularProgress /></div>
                     :
-                    <ItemDetail prod={prod}/>
+                    <ItemDetail prod={prod} key={prodID}/>
             }
         </>
     );

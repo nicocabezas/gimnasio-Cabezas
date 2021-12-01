@@ -11,6 +11,7 @@ const ItemDetail = ({ prod }) => {
 
     const [wasClicked, setWasClicked] = useState(false)
     const [count, setCount] = useState(1)
+    
     const { addProd } = useCartContext()
 
 
