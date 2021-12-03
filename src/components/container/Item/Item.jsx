@@ -12,6 +12,7 @@ export const Item = ({ prod }) => {
     return (
         <Box sx={{ border: 2, m: "1rem", borderRadius: '6px'}}>
         <Card key={prod.id} sx={{ maxWidth: 400 }}>
+        
             <CardMedia
                 image={prod.urlImage}
                 alt={prod.name}
@@ -19,24 +20,20 @@ export const Item = ({ prod }) => {
                 height="400"
 
             />
+            
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h6" component="div">
                     {`${prod.title} - ${prod.categoryId}`}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt nihil blanditiis fugiat quae rem qui sed sint
-                    perspiciatis ab! Eligendi, qui harum. Autem,
-                    aperiam quos temporibus debitis accusamus illo ullam!
+                    
                 </Typography>
             </CardContent>
-            <Typography textAlign="center"  >
-                {prod.price}
-            </Typography>
-            {/* <ItemCount stock={10}/> */}
+            
+            
             <CardActions >
                 <Link to={`/detail/${prod.id}`}>
-                    <Button>Ver producto</Button>
+                    <Button align="end">Ver producto</Button>
                 </Link>
             </CardActions>
 

@@ -38,7 +38,7 @@ const ItemDetail = ({ prod }) => {
                     />
                     <Grid>
                         <h2>{prod.title}</h2>
-                        <p>{prod.descripcion}</p>
+                        <p>{`${prod.description}`}</p>
                         <p>{prod.price}</p>
 
                         {
