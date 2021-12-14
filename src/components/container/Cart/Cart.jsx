@@ -7,20 +7,21 @@ import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../../Context/CartContext'
 import CartEmpty from './CartEmpty';
-import { Button, TableBody} from '@mui/material'
+import { Button, TableBody } from '@mui/material'
 import { Delete } from '@material-ui/icons';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
 import ModalFinal from '../ModalShop/ModalFinal';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Form from '../ModalShop/Form';
 
 
 export const Cart = () => {
-    const [showModal, setShowModal] = useState(false);
-    
-    const { cartList, deleteCart, deleteProd, totalPrice } = useCartContext();
+    // const [showModal, setShowModal] = useState(false);
+    // const total = totalPrice();
+    const { cartList, deleteCart, deleteProd, totalPrice } = useCartContext()
 
-    
+
 
     return (
         <div>
@@ -76,13 +77,13 @@ export const Cart = () => {
 
                                 <hr />
                             </Box>
-                            
-                        
+
+
                         </Grid>
                         <div align="center">
-                        
-
-                        <ModalFinal show={showModal} handleOpen={()=> setShowModal(false)}/>
+                            <hr/>
+                        <Form cart={cartList} total={totalPrice} clearCart={deleteCart}/>
+                            {/* <ModalFinal show={showModal} handleOpen={() => setShowModal(false)} /> */}
                         </div>
 
                     </>

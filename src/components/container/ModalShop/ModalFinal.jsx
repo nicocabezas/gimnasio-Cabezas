@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -31,7 +31,7 @@ export default function ModalFinal() {
     const [name, setName] = useState('');
     const [tel, setTel] = useState('');
     const [email, setEmail] = useState('');
-    const [idOrden, setIdOrden] = useState('')
+    const [idOrden, setIdOrden] = useState(null)
 
     const generarOrden = (e) => {
         e.preventDefault()
@@ -46,13 +46,14 @@ export default function ModalFinal() {
             const id = cartProd.prod.id;
             const title = cartProd.prod.title
             return { id, title }
-
         })
 
         ordersCollection.add(orden)
             .then((IdDocument) => {
                 setIdOrden(IdDocument.id)
             })
+            .catch (err=> console.log (err))
+            .finally (()=> console.log ('finally order'));
     }
     console.log('orden de compra', idOrden)
 
@@ -61,12 +62,10 @@ export default function ModalFinal() {
 
             <Button onClick= {()=> handleOpen(true)}>Generar Orden de Compra</Button>
             <Modal
-            
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
-                
             >
                 <FormControl sx={style}
                     component="form"
@@ -80,19 +79,21 @@ export default function ModalFinal() {
                         <Input id="component-simple" value={name} onChange={(e) => setName(e.target.value)} />
                     </FormControl>
                     <FormControl variant="standard">
-                        <InputLabel htmlFor="component-simple">email</InputLabel>
+                        <InputLabel htmlFor="component-simple">Email</InputLabel>
                         <Input id="component-simple" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </FormControl>
                     <FormControl variant="standard">
-                        <InputLabel htmlFor="component-simple">email</InputLabel>
+                        <InputLabel htmlFor="component-simple">Phone</InputLabel>
                         <Input id="component-simple" value={tel} onChange={(e) => setTel(e.target.value)} />
+
+                        <Button onClick={generarOrden} >Comprar</Button>
                     </FormControl>
                         
-                            <Button >Comprar</Button>
-                            
                     <Button onClick={() => handleClose (false)}>Cerrar</Button>
                 </FormControl>
+                <small>{idOrden ? ` Su orden fue generada con el ID: ${idOrden}` : null}</small>
             </Modal>
         </div>
     );
 }
+ */

@@ -3,20 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { getFirestore } from '../../../service/fireBaseConfig';
 import ItemDetail from '../ItemDetail/ItemDetail';
-// import { products } from '../Products';
 
-// const getItem = new Promise((res, rej) => {
-//     const condition = true;
 
-//     if (condition) {
-//         setTimeout(() => {
-//             res(products)
-//         }, 2000)
-//     } else {
-//         rej('404 Not found')
-//     }
-
-// })
 function ItemDetailContainer() {
     const [prod, setProd] = useState([]);
     const [loading, setLoading] = useState(true);

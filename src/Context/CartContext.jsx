@@ -20,8 +20,7 @@ const CartContextProvider = ({ children }) => {
         } else {
             setCartList([...cartList, { ...prod, cantidad }])
         }
-
-    }
+    };
 
 
     const deleteProd = (id) => {

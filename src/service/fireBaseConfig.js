@@ -12,7 +12,9 @@ const firebaseConfig = {
 
   //inicializo app de acuerdo a las llaves que tenemos
   export const app = firebase.initializeApp(firebaseConfig);
-
+  //  const db = getFirestore();
+  //  export { db }
+  
     //agregando nuestras funciones y conexion con nuestro firestore
   export function getFirestore(){
       return firebase.firestore(app)
