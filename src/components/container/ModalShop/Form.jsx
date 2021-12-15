@@ -7,49 +7,34 @@ const Form = ({cartList, totalPrice, deleteCart}) =>{
     const [formData, setFormData] = useState("");
 
     
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault();
 
-    const generarOrden = (e) => {
-        e.preventDefault()
-        // const comprador = { name, tel, email };
-        const db = getFirestore()
-        const ordersCollection = db.collection('orders');
+      const orderDetail = cartList.map( (i) => `${i.cartProd.name}: ${i.cantidad}`);
+      const date = new Date();
+      const orden = {
+        date: date,
+        buyer: formData,
+        prod: orderDetail,
+        total: totalPrice,
+      };
 
-        let orden = {}
-        // orden.buyer = { comprador }
-        orden.total = totalPrice;
-        orden.products = cartList.map((cartProd) => {
-            const id = cartProd.prod.id;
-            const title = cartProd.prod.title
-            return { id, title }
-        })
-
-        ordersCollection.add(orden)
+      
+      const db = getFirestore();
+      const newOrderRef = db.collection("orders");
+      newOrderRef.add(orden)
             .then((IdDocument) => {
                 setFormData(IdDocument.id)
             })
-            .catch (err=> console.log (err))
-            .finally (()=> console.log ('finally order'));
-    // }
-    // const handleSubmit = async(e) => {
-    //   e.preventDefault();
+      console.log('idOrden', formData);
 
-    //   const orderDetail = cartList.map( (i) => `${i.prod.name}: ${i.quantity}`);
-    //   const date = new Date();
-    //   const newOrder = {
-    //     date: date,
-    //     buyer: formData,
-    //     prod: orderDetail,
-    //     total: total
-    //   };
-
-    //   const newOrderRef = db.collection("orders");
-    //   const db = getFirestore()
-    //   const newDoc = await addDoc(newOrderRef, newOrder);
+    
 
       alert('Thank you for your purchase!');
       alert('Your order ID is: ' + orden + '. Make sure to write it down just in case!');
       deleteCart();
-    };
+          };
 
     function handleChange(e) {
       setFormData({
@@ -57,16 +42,15 @@ const Form = ({cartList, totalPrice, deleteCart}) =>{
         [e.target.name]: e.target.value,
       });
     };
-
+  
     return(
     <>
     <form
-      className='cartDataForm'
       onChange={handleChange}
-      onSubmit={generarOrden}
+      onSubmit={handleSubmit}
     >
         <h3>Completa tus Datos:</h3>
-        <div className='formCartSection'>
+        <div >
           <div>
             <label htmlFor="name">Name:</label>
             <input name="name" id="name" required />
@@ -100,11 +84,11 @@ const Form = ({cartList, totalPrice, deleteCart}) =>{
         </div>
         
         { formData.name != null && formData.phone != null && formData.email1 != null && formData.email2 != null && formData.email1 === formData.email2 ? (
-          <button className="formButtonPurchase" type="submit" onClick={generarOrden}>
+          <button type="submit" onClick={handleSubmit}>
             Purchase
           </button>
         ) : (
-          <button className="formButtonPurchase">
+          <button >
             Purchase
           </button>
         )}
@@ -112,4 +96,6 @@ const Form = ({cartList, totalPrice, deleteCart}) =>{
     </form>
     </>
     )
-}; export default Form;
+        
+}
+export default Form;

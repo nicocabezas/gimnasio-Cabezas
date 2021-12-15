@@ -11,8 +11,7 @@ import { Button, TableBody } from '@mui/material'
 import { Delete } from '@material-ui/icons';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
-import ModalFinal from '../ModalShop/ModalFinal';
-import React, { useState } from 'react';
+import React from 'react';
 import Form from '../ModalShop/Form';
 
 
