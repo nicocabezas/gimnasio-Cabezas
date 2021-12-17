@@ -81,7 +81,7 @@ export const Cart = () => {
                         </Grid>
                         <div align="center">
                             <hr/>
-                        <Form cart={cartList} total={totalPrice} clearCart={deleteCart}/>
+                        <Form cartList={cartList} total={totalPrice} clearCart={deleteCart}/>
                             {/* <ModalFinal show={showModal} handleOpen={() => setShowModal(false)} /> */}
                         </div>
 

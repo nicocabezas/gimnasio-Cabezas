@@ -11,7 +11,7 @@ const Form = ({cartList, totalPrice, deleteCart}) =>{
     const handleSubmit = async (e) => {
       e.preventDefault();
 
-      const orderDetail = cartList.map( (i) => `${i.cartProd.name}: ${i.cantidad}`);
+      const orderDetail = cartList.map( (i) => `${i.prod}: ${i.cantidad}`);
       const date = new Date();
       const orden = {
         date: date,
@@ -23,11 +23,12 @@ const Form = ({cartList, totalPrice, deleteCart}) =>{
       
       const db = getFirestore();
       const newOrderRef = db.collection("orders");
+      console.log(newOrderRef)
       newOrderRef.add(orden)
             .then((IdDocument) => {
                 setFormData(IdDocument.id)
             })
-      console.log('idOrden', formData);
+      
 
     
 
