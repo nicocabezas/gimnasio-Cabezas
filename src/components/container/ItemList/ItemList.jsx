@@ -7,7 +7,6 @@ import { Item } from '../Item/Item'
 const ItemList = ({ products }) => {
     return (
         <div>
-            {/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} > */}
             <Box sx={{ width: '100%' }}>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
@@ -15,11 +14,11 @@ const ItemList = ({ products }) => {
                         <Item prod={prod} key={prod.id} />
 
                     )}
-                    {/* //listado de item */}
+                    
 
                 </Grid>
             </Box>
-            {/* </Grid> */}
+            
 
         </div>
 

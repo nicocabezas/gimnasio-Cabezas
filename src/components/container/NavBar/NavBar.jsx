@@ -1,13 +1,11 @@
 import React from "react";
 import {
   AppBar,
-  IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@mui/material/Button";
 import "./NavBar.css";
 import { CartWidget } from "../CartWidget/CartWidget";
@@ -35,9 +33,7 @@ export default function NavBar() {
       <div className={classes.root}>
         <AppBar >
           <Toolbar className="toolbarcolor">
-            <IconButton>
-              <MenuIcon className="menucolor" />
-            </IconButton>
+
             <Typography variant="h5" sx={{ flexGrow: 1 }}>
               <Link to="/" className="col-link">
                 <Button variant="text" color="inherit">
@@ -63,30 +59,30 @@ export default function NavBar() {
                 </Button>
               </Link>
               <Link
-              to="/categoria/cintas"
-              className="col-link"
+                to="/categoria/cintas"
+                className="col-link"
               >
-              <Button variant="text" color="inherit">
-                Cintas
-              </Button>
+                <Button variant="text" color="inherit">
+                  Cintas
+                </Button>
               </Link>
               <Link
-              to="/categoria/indumentaria"
-              className="col-link"
+                to="/categoria/indumentaria"
+                className="col-link"
               >
-              <Button variant="text" color="inherit">
-                Indumentaria
-              </Button>
+                <Button variant="text" color="inherit">
+                  Indumentaria
+                </Button>
               </Link>
             </Typography>
-            <Button color="inherit">Iniciar Sesion</Button>
+
             <Link
-            to="/cart"
-            
+              to="/cart"
+
             >
-            <Button>
-              <CartWidget />
-            </Button>
+              <Button>
+                <CartWidget />
+              </Button>
             </Link>
             <img
               src={`./assets/FondoNavBar/fondoNavBar.jpg`}

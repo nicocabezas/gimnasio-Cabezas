@@ -20,7 +20,7 @@ const style = {
 
 const ModalFinal = () => {
 
-    const { cartList, totalPrice } = useCartContext(CartContext);
+    const { cartList, totalPrice, deleteCart } = useCartContext(CartContext);
     const handleOpen = () => setOpen(true);
 
     const [open, setOpen] = useState(false);
@@ -37,11 +37,12 @@ const ModalFinal = () => {
         e.preventDefault()
         const comprador = { name, phone, email };
         const bdQuery = getFirestore();
-        const ordersCollection = bdQuery.collection('orders');
+        console.log(bdQuery)
+        const ordersCollection = bdQuery.collection("orders");
 
         let orden = {};
         orden.buyer = { comprador };
-        orden.total = totalPrice;
+        // orden.total = totalPrice;
         orden.products = cartList.map((cartProd) => {
             const id = cartProd.id;
             console.log(id);
@@ -49,7 +50,7 @@ const ModalFinal = () => {
             console.log(title);
             return { id, title }
         })
-
+        console.log(orden)
         ordersCollection.add(orden)
             .then((IdDocument) => {
                 setIdOrden(IdDocument.id)
@@ -58,6 +59,7 @@ const ModalFinal = () => {
             .finally(() => console.log('finally order'));
     }
     console.log('orden de compra', idOrden)
+    
 
     return (
         <div>
@@ -92,9 +94,11 @@ const ModalFinal = () => {
                     </FormControl>
 
                     <Button onClick={() => handleClose(false)}>Cerrar</Button>
+                
                 </FormControl>
-                {/* <small>{idOrden ? ` Su orden fue generada con el ID: ${idOrden}` : null}</small> */}
+                
             </Modal>
+            
         </div>
     );
 }

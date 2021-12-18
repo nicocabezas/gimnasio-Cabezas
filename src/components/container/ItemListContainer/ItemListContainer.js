@@ -2,15 +2,8 @@ import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { getFirestore } from '../../../service/fireBaseConfig';
-// import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemList from '../ItemList/ItemList';
-// import { products } from '../Products';
 
-// const getProducts = new Promise((res) => {
-//   setTimeout(() => {
-//       res(products)
-//   }, 2000);
-// });
 
 function ItemListContainer({ greeting }) {
   const [products, setProducts] = useState([])
@@ -36,21 +29,6 @@ function ItemListContainer({ greeting }) {
 
   }
 
-    // if (categoryID) {
-    //   getProducts
-    //     .then(res => {
-    //       setProducts(res.filter(prod => prod.categoria === categoryID))
-    //     })
-    //     .catch(err => console.log(err))
-    //     .finally(() => setLoading(false))
-    // } else {
-    //   getProducts
-    //     .then(res => {
-    //       setProducts(res)
-    //     })
-    //     .catch(err => console.log(err))
-    //     .finally(() => setLoading(false))
-    // };
   }, [categoryID]);
 
 
@@ -59,7 +37,7 @@ function ItemListContainer({ greeting }) {
   return (
     <>
       <h1>{greeting}</h1>
-      {/*  <ItemCount stock={10} initial={1} /> */}
+      
       {
         loading
           ?
@@ -68,7 +46,7 @@ function ItemListContainer({ greeting }) {
           :
           <ItemList products={products} />
       }
-      {/* <ItemDetailContainer /> */}
+      
 
     </>
   );

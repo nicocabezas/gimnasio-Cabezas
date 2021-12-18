@@ -12,13 +12,12 @@ import { Delete } from '@material-ui/icons';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import Form from '../ModalShop/Form';
 import ModalFinal from '../ModalShop/ModalFinal';
 
 
 export const Cart = () => {
     const [showModal, setShowModal] = useState(false);
-    
+
     const { cartList, deleteCart, deleteProd, totalPrice } = useCartContext()
 
 
@@ -28,37 +27,44 @@ export const Cart = () => {
             {cartList.length === 0 ? <CartEmpty h1="Su carrito está vacío" /> :
 
                 cartList.map(prod =>
-
+                    <Paper sx={{ width: '100%' }}>
                     <TableContainer component={Paper}>
-                        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                            <TableHead>
-                                <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }} >
+                        <Table stickyHeader aria-label="sticky table" padding= 'normal'>
+                            <TableHead >
+                                <TableRow>
 
                                     <TableCell >Productos</TableCell>
+                                    
                                     <TableCell align="right">Cantidad</TableCell>
                                     <TableCell align="right">Precio</TableCell>
                                     <TableCell align="right">Total</TableCell>
-
-                                </TableRow>
+                                    </TableRow>
                             </TableHead>
 
                             <TableBody>
-                                <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }} >
-
-                                    <TableCell component="th" scope="row">{prod.title}</TableCell>
+                            
+                                <TableRow
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    
+                                    <TableCell >{prod.title}</TableCell>
+                                    
                                     <TableCell align="right">{prod.cantidad}</TableCell>
                                     <TableCell align="right">{prod.price}</TableCell>
                                     <TableCell align="right">{prod.price * prod.cantidad}</TableCell>
-                                    <TableCell align="right">
+                                    <TableCell >
                                         <Button item xs={8}>
                                             <Delete onClick={() => deleteProd(prod.id)} />
                                         </Button>
                                     </TableCell>
+                                    
                                 </TableRow>
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
+                                </TableBody>
 
+                        </Table>
+                        
+                    </TableContainer>
+                    </Paper>
                 )
 
             }
@@ -81,8 +87,8 @@ export const Cart = () => {
 
                         </Grid>
                         <div align="center">
-                            <hr/>
-                        {/* <Form cartList={cartList} total={totalPrice} clearCart={deleteCart}/> */}
+                            <hr />
+
                             <ModalFinal show={showModal} handleOpen={() => setShowModal(false)} />
                         </div>
 

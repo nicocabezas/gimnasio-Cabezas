@@ -11,7 +11,7 @@ import "firebase/firestore";
   };
 
   //inicializo app de acuerdo a las llaves que tenemos
-   const app = firebase.initializeApp(firebaseConfig);
+  export const app = firebase.initializeApp(firebaseConfig);
  
   
     //agregando nuestras funciones y conexion con nuestro firestore

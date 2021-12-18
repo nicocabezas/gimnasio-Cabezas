@@ -68,15 +68,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <br/>
             <Box sx={{ display: "grid", gridTemplateColumns: "repeat(1, 1fr)" }}>
             <Button onClick={() => onAdd(count)}> Agregar al Carro </Button>
-                {/* <Button
-
-                    variant="outlined"
-                    onClick={onAdd}
-                    
-                >
-
-                    Agregar
-                </Button> */}
             </Box>
 
         </div>

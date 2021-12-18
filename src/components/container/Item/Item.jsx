@@ -1,7 +1,6 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
 import { withStyles } from '@mui/styles';
-// import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { Box } from "@mui/system";
 
