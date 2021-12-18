@@ -11,18 +11,18 @@ const Form = ({cartList, totalPrice, deleteCart}) =>{
     const handleSubmit = async (e) => {
       e.preventDefault();
 
-      const orderDetail = cartList.map( (i) => `${i.prod}: ${i.cantidad}`);
+      const orderDetail = cartList.map( (i) => `${i.prodID}: ${i.cantidad}`);
       const date = new Date();
       const orden = {
         date: date,
         buyer: formData,
-        prod: orderDetail,
+        products: orderDetail,
         total: totalPrice,
       };
 
       
-      const db = getFirestore();
-      const newOrderRef = db.collection("orders");
+      const bdQuery = getFirestore();
+      const newOrderRef = bdQuery.collection("orders");
       console.log(newOrderRef)
       newOrderRef.add(orden)
             .then((IdDocument) => {
@@ -33,7 +33,7 @@ const Form = ({cartList, totalPrice, deleteCart}) =>{
     
 
       alert('Thank you for your purchase!');
-      alert('Your order ID is: ' + orden + '. Make sure to write it down just in case!');
+      alert('Your order ID is: ' + newOrderRef + '. Make sure to write it down just in case!');
       deleteCart();
           };
 

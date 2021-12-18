@@ -1,4 +1,4 @@
-/* import React, { useState } from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -18,33 +18,35 @@ const style = {
     p: 4,
 };
 
-export default function ModalFinal() {
+const ModalFinal = () => {
 
     const { cartList, totalPrice } = useCartContext(CartContext);
     const handleOpen = () => setOpen(true);
 
     const [open, setOpen] = useState(false);
-    
+
     const handleClose = () => setOpen(false);
 
 
     const [name, setName] = useState('');
-    const [tel, setTel] = useState('');
+    const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
-    const [idOrden, setIdOrden] = useState(null)
+    const [idOrden, setIdOrden] = useState(null);
 
     const generarOrden = (e) => {
         e.preventDefault()
-        const comprador = { name, tel, email };
-        const db = getFirestore()
-        const ordersCollection = db.collection('orders');
+        const comprador = { name, phone, email };
+        const bdQuery = getFirestore();
+        const ordersCollection = bdQuery.collection('orders');
 
-        let orden = {}
-        orden.buyer = { comprador }
+        let orden = {};
+        orden.buyer = { comprador };
         orden.total = totalPrice;
         orden.products = cartList.map((cartProd) => {
-            const id = cartProd.prod.id;
-            const title = cartProd.prod.title
+            const id = cartProd.id;
+            console.log(id);
+            const title = cartProd.title;
+            console.log(title);
             return { id, title }
         })
 
@@ -52,15 +54,15 @@ export default function ModalFinal() {
             .then((IdDocument) => {
                 setIdOrden(IdDocument.id)
             })
-            .catch (err=> console.log (err))
-            .finally (()=> console.log ('finally order'));
+            .catch(err => console.log(err))
+            .finally(() => console.log('finally order'));
     }
     console.log('orden de compra', idOrden)
 
     return (
         <div>
 
-            <Button onClick= {()=> handleOpen(true)}>Generar Orden de Compra</Button>
+            <Button onClick={() => handleOpen(true)}>Generar Orden de Compra</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -84,16 +86,16 @@ export default function ModalFinal() {
                     </FormControl>
                     <FormControl variant="standard">
                         <InputLabel htmlFor="component-simple">Phone</InputLabel>
-                        <Input id="component-simple" value={tel} onChange={(e) => setTel(e.target.value)} />
+                        <Input id="component-simple" value={phone} onChange={(e) => setPhone(e.target.value)} />
 
                         <Button onClick={generarOrden} >Comprar</Button>
                     </FormControl>
-                        
-                    <Button onClick={() => handleClose (false)}>Cerrar</Button>
+
+                    <Button onClick={() => handleClose(false)}>Cerrar</Button>
                 </FormControl>
-                <small>{idOrden ? ` Su orden fue generada con el ID: ${idOrden}` : null}</small>
+                {/* <small>{idOrden ? ` Su orden fue generada con el ID: ${idOrden}` : null}</small> */}
             </Modal>
         </div>
     );
 }
- */
+export default ModalFinal;

@@ -1,7 +1,7 @@
 import firebase from "firebase";
 import "firebase/firestore";
 
-const firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyApV5SPT5HAXkbd4-medY8pRb3wnJCi8Lo",
     authDomain: "gimnasio-cabezas.firebaseapp.com",
     projectId: "gimnasio-cabezas",
@@ -11,7 +11,7 @@ const firebaseConfig = {
   };
 
   //inicializo app de acuerdo a las llaves que tenemos
-  export const app = firebase.initializeApp(firebaseConfig);
+   const app = firebase.initializeApp(firebaseConfig);
  
   
     //agregando nuestras funciones y conexion con nuestro firestore

@@ -11,13 +11,14 @@ import { Button, TableBody } from '@mui/material'
 import { Delete } from '@material-ui/icons';
 import Grid from '@mui/material/Grid';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import Form from '../ModalShop/Form';
+import ModalFinal from '../ModalShop/ModalFinal';
 
 
 export const Cart = () => {
-    // const [showModal, setShowModal] = useState(false);
-    // const total = totalPrice();
+    const [showModal, setShowModal] = useState(false);
+    
     const { cartList, deleteCart, deleteProd, totalPrice } = useCartContext()
 
 
@@ -81,8 +82,8 @@ export const Cart = () => {
                         </Grid>
                         <div align="center">
                             <hr/>
-                        <Form cartList={cartList} total={totalPrice} clearCart={deleteCart}/>
-                            {/* <ModalFinal show={showModal} handleOpen={() => setShowModal(false)} /> */}
+                        {/* <Form cartList={cartList} total={totalPrice} clearCart={deleteCart}/> */}
+                            <ModalFinal show={showModal} handleOpen={() => setShowModal(false)} />
                         </div>
 
                     </>
