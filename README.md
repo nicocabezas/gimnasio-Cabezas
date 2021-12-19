@@ -5,7 +5,8 @@
 
 ![](https://firebasestorage.googleapis.com/v0/b/gimnasio-cabezas.appspot.com/o/inicio-page.png?alt=media&token=aa28179f-31a5-4c89-86da-3e731316ac15)
 ![](https://firebasestorage.googleapis.com/v0/b/gimnasio-cabezas.appspot.com/o/categoria-musculacion.png?alt=media&token=e5e2f152-6c80-4faa-90a5-5a2fbcb1f32d)
-![](https://firebasestorage.googleapis.com/v0/b/gimnasio-cabezas.appspot.com/o/compra-producto.png?alt=media&token=6d92ce86-bc65-49c3-9b57-94ad74f657d1)
+![](https://firebasestorage.googleapis.com/v0/b/gimnasio-cabezas.appspot.com/o/compra-id.png?alt=media&token=1c64642f-26ad-4a02-a1a9-7e38547c25e0)
+![](https://firebasestorage.googleapis.com/v0/b/gimnasio-cabezas.appspot.com/o/orden-firebase.png?alt=media&token=aaf9d907-18c4-4344-a3c5-cd2dde9986a0)
 
 
 # Desarrollo web Gimnasio "ProFitness".
