@@ -42,7 +42,6 @@ const ModalFinal = () => {
 
         let orden = {};
         orden.buyer = { comprador };
-        // orden.total = totalPrice;
         orden.products = cartList.map((cartProd) => {
             const id = cartProd.id;
             console.log(id);
@@ -59,7 +58,7 @@ const ModalFinal = () => {
             .finally(() => console.log('finally order'));
     }
     console.log('orden de compra', idOrden)
-    
+
 
     return (
         <div>
@@ -93,12 +92,14 @@ const ModalFinal = () => {
                         <Button onClick={generarOrden} >Comprar</Button>
                     </FormControl>
 
-                    <Button onClick={() => handleClose(false)}>Cerrar</Button>
-                
+                    <Button onClick={deleteCart}>Cerrar</Button>
+                    <small>{idOrden ? ` Su orden fue generada con el ID: ${idOrden} por un total de: ${totalPrice()}
+                    
+                    Muchas Gracias por su compra!!!
+                    ` : null}</small>
                 </FormControl>
-                
             </Modal>
-            
+
         </div>
     );
 }
