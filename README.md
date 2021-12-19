@@ -1,4 +1,6 @@
+
 # Web Demo:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f8bacbb5-a4f6-4bb5-b151-51636d702482/deploy-status)](https://app.netlify.com/sites/gimnasio-profitness/deploys)
 [VER DEMO](https://gimnasio-profitness.netlify.app/ "demo") 
 
 ![](https://firebasestorage.googleapis.com/v0/b/gimnasio-cabezas.appspot.com/o/inicio-page.png?alt=media&token=aa28179f-31a5-4c89-86da-3e731316ac15)
