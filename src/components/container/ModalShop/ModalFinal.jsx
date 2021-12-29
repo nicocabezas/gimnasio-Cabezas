@@ -72,7 +72,6 @@ const ModalFinal = () => {
             >
                 <FormControl sx={style}
                     component="form"
-                    onSubmit={generarOrden}
                 >
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Ingresa tus datos

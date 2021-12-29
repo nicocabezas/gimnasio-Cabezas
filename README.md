@@ -18,9 +18,16 @@ El proyecto es en base a una simple pagina de e-commerce para el store de un gim
 
 # Librerias utilizadas:
 
-- Material UI: Libreria que utilizo para la parte visible y estetica, como ser la fuente, iconos, menu, cards, botones y circulo de espera de render.
-- React-router-dom: for navigation components.
-- Firebase: services and data.
+|  Dependencia |  Versión   | Uso  |
+| ------------ | ------------ | ------------ |
+| MUI Material  | 5.0.4  |  Libreria que utilizo para la parte visible y estetica   |
+| Material icons  | 4.11.2   |  Íconos  |
+| Material styles | 4.11.4   |  Estilos  |
+| react-dom  | 17.0.2   |  Render  |
+| react-router-dom  |  5.3.0  | Para componentes de navegación |
+|  firebase | 8.9.1  | Servicios y datos |
+
+
 
 
 :gear: Tecnologías
